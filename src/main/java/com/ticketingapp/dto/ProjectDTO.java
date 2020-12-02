@@ -10,6 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDate;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class ProjectDTO {
@@ -27,6 +28,8 @@ public class ProjectDTO {
     private String projectDetail;
     private Status projectStatus;
     private boolean isComplete;
+    private int completeTasksCount;
+    private int unfinishedTasksCount;
 
     public ProjectDTO(String projectName, String projectCode, UserDTO assignedManager, LocalDate startDate,
                       LocalDate endDate, String projectDetail, Status projectStatus) {
@@ -39,4 +42,5 @@ public class ProjectDTO {
         this.projectStatus = projectStatus;
         this.isComplete = false;
     }
+
 }
