@@ -78,6 +78,12 @@ public class ProjectController {
         return "manager/project-status";
     }
 
+    @GetMapping("/manager/complete/{projectcode}")
+    public String completeProjectsForManagerById(@PathVariable("projectcode") String projectcode) {
+        projectService.findById(projectcode).setComplete(true);
+        return "redirect:/project/manager/complete";
+    }
+
     private List<ProjectDTO> getCountedListOfProjectDTO(UserDTO manager) {
         return projectService.findAll()
                 .stream()

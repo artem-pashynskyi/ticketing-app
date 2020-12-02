@@ -45,7 +45,7 @@
                                                     <td th:text="${project.unfinishedTasksCount + ' / ' + project.completeTasksCount}"></td>
                                                     <td th:text="${project.projectStatus.value}"></td>
                                                     <td>
-                                                        <a><button class="btn btn-info rounded">Complete</button></a>
+                                                        <a th:href="@{'/project/manager/complete/' + ${project.projectCode}}"><button class="btn btn-info rounded" th:disabled="${project.isComplete()}">Complete</button></a>
                                                     </td>
                                                 </tr>
                                             </tbody>
