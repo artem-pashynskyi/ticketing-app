@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Controller
 @RequestMapping("/task")
@@ -38,7 +39,7 @@ public class TaskController {
     @PostMapping("/create")
     public String insertTask(TaskDTO task) {
         task.setTaskStatus(Status.OPEN);
-        task.setAssignDate(LocalDate.now());
+        task.setAssignedDate(LocalDateTime.now());
         taskService.save(task);
         return "redirect:/task/create";
     }
@@ -82,6 +83,12 @@ public class TaskController {
     public String statusUpdateTask(@PathVariable("id") Long id, TaskDTO task) {
         taskService.findById(id).setTaskStatus(task.getTaskStatus());
         return "redirect:/task/employee/status";
+    }
+
+    @GetMapping("/employee/archive")
+    public String archive(Model model) {
+        model.addAttribute("tasks", taskService.getCompleted());
+        return "employee/archived-projects";
     }
 
 }

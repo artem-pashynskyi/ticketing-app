@@ -23,7 +23,7 @@ public class TaskServiceImpl extends AbstractMapService<TaskDTO, Long> implement
 
     @Override
     public void update(TaskDTO object) {
-        object.setAssignDate(findById(object.getId()).getAssignDate());
+        object.setAssignedDate(findById(object.getId()).getAssignedDate());
         object.setTaskStatus(findById(object.getId()).getTaskStatus());
         super.update(object.getId(), object);
     }
