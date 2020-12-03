@@ -4,7 +4,7 @@ import com.ticketingapp.enums.Status;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Getter
@@ -17,20 +17,20 @@ public class TaskDTO {
     private String taskSubject;
     private String taskDetail;
     private Status taskStatus;
-    private LocalDate assignDate;
+    private LocalDateTime assignedDate;
 
     public TaskDTO() {
         this.id = UUID.randomUUID().getMostSignificantBits();
     }
 
-    public TaskDTO(ProjectDTO project, UserDTO assignedEmployee, String taskSubject, String taskDetail, Status taskStatus, LocalDate assignDate) {
+    public TaskDTO(ProjectDTO project, UserDTO assignedEmployee, String taskSubject, String taskDetail, Status taskStatus, LocalDateTime assignedDate) {
         this.id = UUID.randomUUID().getMostSignificantBits();
         this.project = project;
         this.assignedEmployee = assignedEmployee;
         this.taskSubject = taskSubject;
         this.taskDetail = taskDetail;
         this.taskStatus = taskStatus;
-        this.assignDate = assignDate;
+        this.assignedDate = assignedDate;
     }
 
 }

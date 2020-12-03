@@ -99,8 +99,8 @@
                                             <tr>
                                                 <th scope="col">Project</th>
                                                 <th scope="col">Task Subject</th>
-                                                <th scope="col">Assign Employee</th>
-                                                <th scope="col">Assign Date</th>
+                                                <th scope="col">Assigned Employee</th>
+                                                <th scope="col">Assigned Date</th>
                                                 <th scope="col">Status</th>
                                                 <th scope="col">Action</th>
                                             </tr>
@@ -110,7 +110,7 @@
                                                 <td th:text="${task.project.projectCode + ' ' + task.project.projectName}"></td>
                                                 <td th:text="${task.taskSubject}"></td>
                                                 <td th:text="${task.assignedEmployee.firstName + ' ' + task.assignedEmployee.lastName}"></td>
-                                                <td th:text="${#temporals.format(task.assignDate, 'MM/dd/yyyy')}"></td>
+                                                <td th:text="${#temporals.format(task.assignedDate, 'MM/dd/yyyy')}"></td>
                                                 <td th:text="${task.taskStatus.value}"></td>
                                                 <td>
                                                     <a th:href="@{/task/edit/{id}(id=${task.getId()})}"><button type="button" class="btn btn-warning rounded">Update</button></a>
